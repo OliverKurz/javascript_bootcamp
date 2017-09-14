@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<%- include ../partials/_header %>
+  <title>TinyApp</title>
+</head>
+<body>
+  <ul><h2>URLs and Their Shortened Forms</h2>
+
+<% for (var key in urls) { %>
+ <li>
+  <strong> <%= key %>:</strong> <%= urls[key] %>
+    <form method="POST" action="/urls/<%= key %>/delete/">
+      <button id="delete">Delete Link</button>
+    </form>
+ </li>
+<% } %>
+
+<form method="POST" action="/users/#{user.name}">
+    <input type="hidden" name="_method" value="PUT"/>
+</form>
+
+  </ul>
+    <br>
+  <ul><h2><a href="http://localhost:8080/urls/new">Shorten Your URL</a></h2>
+  </ul>
+</body>
+</html>
